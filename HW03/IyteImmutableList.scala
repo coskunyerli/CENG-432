@@ -19,4 +19,3 @@ case class Cons(head: Int, tail: ImmutableList) extends ImmutableList{
 object ImmutableList{
 	def apply() = Nill
 }
-//Son Gün bir Kez Daha Kontrol Et

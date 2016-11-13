@@ -28,5 +28,3 @@ class IyteMutableList(){
 object IyteMutableList{
 	def apply() = new IyteMutableList()
 }
-
-//Son Gün Bak buna da

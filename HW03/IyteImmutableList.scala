@@ -1,11 +1,11 @@
-sealed trait ImmutableList{
+sealed trait IyteImmutableList{
 	def add(x : Int) :ImmutableList
 }
-case object Nill extends ImmutableList{
+case object Nill extends IyteImmutableList{
 	override def add(x : Int) : ImmutableList = Cons(x,Nill)
 	override def toString = ""
 }
-case class Cons(head: Int, tail: ImmutableList) extends ImmutableList{
+case class Cons(head: Int, tail: ImmutableList) extends IyteImmutableList{
 	override def add(x : Int) : ImmutableList =  Cons(x,this)
 	override def toString : String= {
 		def go(l : ImmutableList) : String= l match {
@@ -16,6 +16,6 @@ case class Cons(head: Int, tail: ImmutableList) extends ImmutableList{
 		 string.substring(0,string.length-1)
 	}
 }
-object ImmutableList{
-	def apply() = Nill
+object IyteImmutableList{
+	def apply() : ImmutableList = Nill
 }

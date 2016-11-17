@@ -1,14 +1,14 @@
 sealed trait IyteImmutableList{
-	def add(x : Int) :ImmutableList
+	def add(x : Int) :IyteImmutableList
 }
 case object Nill extends IyteImmutableList{
-	override def add(x : Int) : ImmutableList = Cons(x,Nill)
+	override def add(x : Int) : IyteImmutableList = Cons(x,Nill)
 	override def toString = ""
 }
-case class Cons(head: Int, tail: ImmutableList) extends IyteImmutableList{
-	override def add(x : Int) : ImmutableList =  Cons(x,this)
+case class Cons(head: Int, tail: IyteImmutableList) extends IyteImmutableList{
+	override def add(x : Int) : IyteImmutableList =  Cons(x,this)
 	override def toString : String= {
-		def go(l : ImmutableList) : String= l match {
+		def go(l : IyteImmutableList) : String= l match {
 			case Nill => Nill.toString
 			case Cons(x,xs) => x.toString + "," + go(xs)
 		}
@@ -17,5 +17,5 @@ case class Cons(head: Int, tail: ImmutableList) extends IyteImmutableList{
 	}
 }
 object IyteImmutableList{
-	def apply() : ImmutableList = Nill
+	def apply() : IyteImmutableList = Nill
 }

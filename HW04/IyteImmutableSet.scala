@@ -7,10 +7,12 @@ sealed abstract class IyteImmutableSet {
   protected def array : Array[IyteImmutableList]
   def contains(x : Int) : Boolean = array(hash(x)).contains(x)
   def add(x : Int) : IyteImmutableSet = {
-    if(!array(hash(x)).contains(x)){
-      array(hash(x)) = array(hash(x)).add(x)
+    val temp : Array[IyteImmutableList]=new Array[IyteImmutableList](101)
+    Array.copy(array,0,temp,0,101)
+    if(!temp(hash(x)).contains(x)){
+      temp(hash(x)) = temp(hash(x)).add(x)
     }
-    Scons(array)
+    Scons(temp)
   }
 }
 case class Scons(private val a : Array[IyteImmutableList]) extends IyteImmutableSet{

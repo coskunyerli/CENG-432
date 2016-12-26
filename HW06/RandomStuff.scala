@@ -34,13 +34,13 @@ object RandomStuff extends RandomStuffTrait {
     if(retryCount < 0) {
       count = 0
     }
-    do{
+    while (count >= 0){
       try {
         return Option(op)
       } catch {
         case e: Exception => count = count - 1
       }
-    }while (count > 0)
+    }
     None
   }
 }
